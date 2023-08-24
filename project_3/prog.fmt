@@ -1,0 +1,5 @@
+        DISABLE INTERRUPT
+BOUCLE: 
+        INPUT s0, 00
+        OUTPUT s0, 00
+        JUMP BOUCLE

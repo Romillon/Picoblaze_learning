@@ -1,0 +1,42 @@
+        DISABLE INTERRUPT
+        LOAD s1, 00       ; S1 register (LED/output register)   is set to equal 0 in the beginning
+BOUCLE: 
+        INPUT s0, 00      ;The binary code coresponding to my switches are written here in s0.
+        COMPARE s0, 01    ; switch =1 ?
+        JUMP Z, CASE01    ; if equal --> JUMP to location CASE01 after
+        COMPARE s0, 02    ; switch =2 ?
+        JUMP Z, CASE02
+        COMPARE s0, 03    ; switch =3 ?
+        JUMP Z, CASE03
+        COMPARE s0, 04    ; switch =4 ?
+        JUMP Z, CASE04
+        COMPARE s0, 05    ; switch =5 ?
+        JUMP Z, CASE05
+        COMPARE s0, 06    ; switch =6 ?
+        JUMP Z, CASE06
+        COMPARE s0, 07    ; switch =7 ?
+        JUMP Z, CASE07
+ PRINT: 
+        OUTPUT s1, 00
+        JUMP BOUCLE
+CASE01: 
+        LOAD s1, 01
+        JUMP PRINT
+CASE02: 
+        LOAD s1, 02
+        JUMP PRINT
+CASE03: 
+        LOAD s1, 03
+        JUMP PRINT
+CASE04: 
+        LOAD s1, 04
+        JUMP PRINT
+CASE05: 
+        LOAD s1, 05
+        JUMP PRINT
+CASE06: 
+        LOAD s1, 06
+        JUMP PRINT
+CASE07: 
+        LOAD s1, 07
+        JUMP PRINT

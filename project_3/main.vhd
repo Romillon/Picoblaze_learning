@@ -61,7 +61,7 @@ architecture Behavioral of main is
 
 
 
-  component prog                             
+  component prog2                            
     generic(             C_FAMILY : string := "S6"; 
                 C_RAM_SIZE_KWORDS : integer := 1;
              C_JTAG_LOADER_ENABLE : integer := 0);
@@ -129,7 +129,7 @@ begin
 
 
 
-  program_rom: prog                              --Name to match your PSM file
+  program_rom: prog2                              --Name to match your PSM file
     generic map(             C_FAMILY => "7S",   --Family 'S6', 'V6' or '7S'
                     C_RAM_SIZE_KWORDS => 2,      --Program size '1', '2' or '4'
                  C_JTAG_LOADER_ENABLE => 1)      --Include JTAG Loader when set to '1' 

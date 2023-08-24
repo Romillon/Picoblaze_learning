@@ -125,6 +125,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 2
+  set_param synth.incrementalSynthesisCache C:/Users/pegas/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-17324-DESKTOP-FFCQFA0/incrSyn
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]

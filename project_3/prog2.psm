@@ -20,33 +20,33 @@ BOUCLE :
         JUMP Z, CASE07     
          
     PRINT:
-        OUTPUT s1,00
+        OUTPUT s1,01
         JUMP BOUCLE
 
 CASE01 :
-    LOAD S1,01
+    LOAD s1,01
     JUMP PRINT
 
 CASE02 :
-    LOAD S1,02
+    LOAD s1,02
     JUMP PRINT
 
 CASE03 :
-    LOAD S1,03
+    LOAD s1,04
     JUMP PRINT
 
 CASE04 :
-    LOAD S1,04
+    LOAD s1,08
     JUMP PRINT
 
 CASE05 :
-    LOAD S1,05
+    LOAD s1,10
     JUMP PRINT
 
 CASE06 :
-    LOAD S1,06
+    LOAD s1,20
     JUMP PRINT
 
 CASE07 :
-    LOAD S1,07
+    LOAD s1,40
     JUMP PRINT

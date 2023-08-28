@@ -17,7 +17,7 @@ BOUCLE:
         COMPARE s0, 07    ; switch =7 ?
         JUMP Z, CASE07
  PRINT: 
-        OUTPUT s1, 00
+        OUTPUT s1, 01
         JUMP BOUCLE
 CASE01: 
         LOAD s1, 01
@@ -26,17 +26,17 @@ CASE02:
         LOAD s1, 02
         JUMP PRINT
 CASE03: 
-        LOAD s1, 03
-        JUMP PRINT
-CASE04: 
         LOAD s1, 04
         JUMP PRINT
+CASE04: 
+        LOAD s1, 08
+        JUMP PRINT
 CASE05: 
-        LOAD s1, 05
+        LOAD s1, 10
         JUMP PRINT
 CASE06: 
-        LOAD s1, 06
+        LOAD s1, 20
         JUMP PRINT
 CASE07: 
-        LOAD s1, 07
+        LOAD s1, 40
         JUMP PRINT

@@ -1,5 +1,6 @@
         DISABLE INTERRUPT
         LOAD s1, 00       ; S1 register (LED/output register)   is set to equal 0 in the beginning
+        LOAD s2, 00
 BOUCLE: 
         INPUT s0, 00      ;The binary code coresponding to my switches are written here in s0.
         COMPARE s0, 01    ; switch =1 ?
@@ -16,27 +17,95 @@ BOUCLE:
         JUMP Z, CASE06
         COMPARE s0, 07    ; switch =7 ?
         JUMP Z, CASE07
+        COMPARE s0, 08
+        JUMP Z, CASE08
+        COMPARE s0, 09
+        JUMP Z, CASE09
+        COMPARE s0, 0A
+        JUMP Z, CASE10
+        COMPARE s0, 0B
+        JUMP Z, CASE11
+        COMPARE s0, 0C
+        JUMP Z, CASE12
+        COMPARE s0, 0D
+        JUMP Z, CASE13
+        COMPARE s0, 0E
+        JUMP Z, CASE14
+        COMPARE s0, 0F
+        JUMP Z, CASE15
+        COMPARE s0, 10
+        JUMP Z, CASE16
+        COMPARE s0, 00
+        JUMP Z, CASE00
  PRINT: 
-        OUTPUT s1, 01
+        OUTPUT s1, 00
+        OUTPUT s2, 01
         JUMP BOUCLE
+CASE00: 
+        LOAD s1, 00
+        LOAD s2, 00
+        JUMP PRINT
 CASE01: 
         LOAD s1, 01
+        LOAD s2, 00
         JUMP PRINT
 CASE02: 
         LOAD s1, 02
+        LOAD s2, 00
         JUMP PRINT
 CASE03: 
         LOAD s1, 04
+        LOAD s2, 00
         JUMP PRINT
 CASE04: 
         LOAD s1, 08
+        LOAD s2, 00
         JUMP PRINT
 CASE05: 
         LOAD s1, 10
+        LOAD s2, 00
         JUMP PRINT
 CASE06: 
         LOAD s1, 20
+        LOAD s2, 00
         JUMP PRINT
 CASE07: 
         LOAD s1, 40
+        LOAD s2, 00
+        JUMP PRINT
+CASE08: 
+        LOAD s1, 80
+        LOAD s2, 00
+        JUMP PRINT
+CASE09: 
+        LOAD s1, 00
+        LOAD s2, 01
+        JUMP PRINT
+CASE10: 
+        LOAD s1, 00
+        LOAD s2, 02
+        JUMP PRINT
+CASE11: 
+        LOAD s1, 00
+        LOAD s2, 04
+        JUMP PRINT
+CASE12: 
+        LOAD s1, 00
+        LOAD s2, 08
+        JUMP PRINT
+CASE13: 
+        LOAD s1, 00
+        LOAD s2, 10
+        JUMP PRINT
+CASE14: 
+        LOAD s1, 00
+        LOAD s2, 20
+        JUMP PRINT
+CASE15: 
+        LOAD s1, 00
+        LOAD s2, 40
+        JUMP PRINT
+CASE16: 
+        LOAD s1, 00
+        LOAD s2, 80
         JUMP PRINT

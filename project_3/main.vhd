@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity main is
     Port ( clk : in STD_LOGIC;
            sw : in STD_LOGIC_VECTOR (7 downto 0);
-           leds : out STD_LOGIC_VECTOR (7 downto 0));
+           leds : out STD_LOGIC_VECTOR (15 downto 0));
 end main;
 
 architecture Behavioral of main is
@@ -112,7 +112,7 @@ begin
     port map(      address => instr_adr,
                instruction => instr,
                bram_enable => bram_enable,
-                   port_id => open,
+                   port_id => port_id,                              --la je dois changer le truc parce que j'ai le port pour les leds de droite et celles de guahce.
               write_strobe => wr_en,
             k_write_strobe => open,
                   out_port => out_port,
@@ -144,8 +144,14 @@ begin
     begin
         if clk'event and clk='1' then
             if wr_en ='1' then
-                leds <= out_port;
+                if port_id(0) ='0' then
+                  leds(7 downto 0) <= out_port;  
+                end if;
+                if port_id(0) ='1' then
+                  leds(15 downto 8) <= out_port;  
+                end if;               
             end if;
+
         end if;
     end process;
 

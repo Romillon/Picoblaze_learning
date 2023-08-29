@@ -1,7 +1,11 @@
 -------------------
 TO DO
 --------
-update the .xdc file        //maybe they are no changelents to do
+How to send 16 bits of data with the 8bits processor ?
+
+MAYBE depending on the value of PORT_ID we have we send the MSB of LEDS or the LSB of LEDS
+
+--> out_port    /  port_id
 --------------------
 
 
@@ -12,8 +16,7 @@ Things I sould try  :
 A) Replace output s0,00  with s0,01 => so i can see if we have a difference.                  //normally not i just switch tthe output port   so hopefully it will still work otherwise maybe i have to check how they conncect the route in vivado
 
 
-B) 1)  Do the binary adder with 3 bits first     WE HAVE TO SWITCH PROG FOR PROG2   2 times
-        Mater le COMPARE and TEST
+B)
 
 
 

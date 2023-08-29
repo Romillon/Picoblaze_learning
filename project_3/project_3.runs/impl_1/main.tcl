@@ -115,9 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
@@ -127,8 +124,6 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 2
-  set_param synth.incrementalSynthesisCache C:/Users/pegas/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-18600-DESKTOP-FFCQFA0/incrSyn
-  set_param xicom.use_bs_reader 1
   open_checkpoint main_routed.dcp
   set_property webtalk.parent_dir E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.cache/wt [current_project]
 set_property TOP main [current_fileset]

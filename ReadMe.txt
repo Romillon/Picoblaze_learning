@@ -1,7 +1,11 @@
 -------------------
 TO DO
 --------
-update the .xdc file        //maybe they are no changelents to do
+FINIR LE LEARNING (afficheurs  7 segs)
+Mail vers tuteurs pour leurx expliquer ce que je vais faire.
+
+Translate this in english
+DO the internship report
 --------------------
 
 
@@ -9,24 +13,24 @@ update the .xdc file        //maybe they are no changelents to do
 
 Things I sould try  :
 
-A) Replace output s0,00  with s0,01 => so i can see if we have a difference.                  //normally not i just switch tthe output port   so hopefully it will still work otherwise maybe i have to check how they conncect the route in vivado
+#                                                                           We may add another 7segs if needed.
 
 
-B) 1)  Do the binary adder with 3 bits first     WE HAVE TO SWITCH PROG FOR PROG2   2 times
-        Mater le COMPARE and TEST
+0) print the number with 7 segs                                             Using the Video of https://www.youtube.com/watch?v=KurFCcvw0qA&ab_channel=VahidMeghdadi
+1)a) 3 switch for 2^3 = 8 levels for power.                                 When Level >=3           POWER_LED is on.              #POWER = WIND + SOLAR - FARM
+  b)                    8 levels for water_level                            When Level = max         MAX_LEVEL is on
+  c)              2^7   128 levels for water_temp  (SUR 2 CHIFFRES)         When Level = 7           +1 water level  -3 water temp
+  # total   13 switch
 
 
-
-    2) then with 4 bits  (2^4    =>    16   so 2*8 bits  so   00 then 01)      COMAPRECY
-
-
-
-
+2) gestion timing quand on entre dans le cas qu'il faut -> on commence a chauffer l'eau    (water_temp va s'incrémenter tout seul)
 
 
 
-    3) Using the Video of https://www.youtube.com/watch?v=KurFCcvw0qA&ab_channel=VahidMeghdadi
-        Add the Afficheur7segments module
+3) terminer + optimiser le program
+
+
+
 
 
 

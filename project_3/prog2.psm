@@ -1,6 +1,11 @@
         DISABLE INTERRUPT
+<<<<<<< HEAD
 LOAD s1,00            ; LED LSB 
 LOAD s2,00            ; LED MSB
+=======
+LOAD s1,00            ; S1 register (LED/output register)   is set to equal 0 in the beginning 
+LOAD s2,00
+>>>>>>> master
 
 BOUCLE :
         INPUT s0,00    ;The binary code coresponding to my switches are written here in s0.

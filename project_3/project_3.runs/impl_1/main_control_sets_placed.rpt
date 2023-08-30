@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Mon Aug 28 17:53:01 2023
+| Date         : Tue Aug 29 16:36:38 2023
 | Host         : DESKTOP-FFCQFA0 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    13 |
-|    Minimum number of control sets                        |    13 |
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
 | Unused register locations in slices containing registers |    32 |
@@ -39,11 +39,11 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    13 |
+| Total control sets |    14 |
 | >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     1 |
-| >= 8 to < 10       |     3 |
+| >= 8 to < 10       |     4 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     1 |
@@ -58,10 +58,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              48 |           16 |
+| No           | No                    | No                     |              48 |           12 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              18 |            9 |
-| Yes          | No                    | No                     |              40 |           15 |
+| Yes          | No                    | No                     |              48 |           14 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |              14 |            4 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -79,13 +79,14 @@ Table of Contents
 |  clk_IBUF_BUFG                                               |                                                                                            | processor/internal_reset                                                                      |                3 |              6 |         2.00 |
 |  clk_IBUF_BUFG                                               |                                                                                            | program_rom/instr[7]                                                                          |                5 |              8 |         1.60 |
 |  clk_IBUF_BUFG                                               | processor/spm_enable                                                                       |                                                                                               |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG                                               | processor/write_strobe                                                                     |                                                                                               |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG                                               | processor/E[0]                                                                             |                                                                                               |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                                               | processor/E[1]                                                                             |                                                                                               |                4 |              8 |         2.00 |
 |  clk_IBUF_BUFG                                               | processor/WE                                                                               | processor/internal_reset                                                                      |                3 |             12 |         4.00 |
-|  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/shift                                    |                                                                                               |                5 |             14 |         2.80 |
+|  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/shift                                    |                                                                                               |                3 |             14 |         4.67 |
 |  clk_IBUF_BUFG                                               | processor/WE                                                                               |                                                                                               |                2 |             16 |         8.00 |
 |  clk_IBUF_BUFG                                               | processor/register_enable                                                                  |                                                                                               |                2 |             16 |         8.00 |
-|  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.jtag_din_int[17]_i_1_n_0 |                                                                                               |                6 |             18 |         3.00 |
-|  clk_IBUF_BUFG                                               |                                                                                            |                                                                                               |               15 |             47 |         3.13 |
+|  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.jtag_din_int[17]_i_1_n_0 |                                                                                               |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG                                               |                                                                                            |                                                                                               |               11 |             47 |         4.27 |
 +--------------------------------------------------------------+--------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+------------------+----------------+--------------+
 
 

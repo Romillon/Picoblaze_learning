@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue Aug 29 16:36:38 2023
+| Date         : Wed Aug 30 17:21:46 2023
 | Host         : DESKTOP-FFCQFA0 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -83,8 +83,8 @@ Table of Contents
 |  clk_IBUF_BUFG                                               | processor/E[1]                                                                             |                                                                                               |                4 |              8 |         2.00 |
 |  clk_IBUF_BUFG                                               | processor/WE                                                                               | processor/internal_reset                                                                      |                3 |             12 |         4.00 |
 |  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/shift                                    |                                                                                               |                3 |             14 |         4.67 |
-|  clk_IBUF_BUFG                                               | processor/WE                                                                               |                                                                                               |                2 |             16 |         8.00 |
 |  clk_IBUF_BUFG                                               | processor/register_enable                                                                  |                                                                                               |                2 |             16 |         8.00 |
+|  clk_IBUF_BUFG                                               | processor/WE                                                                               |                                                                                               |                2 |             16 |         8.00 |
 |  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.jtag_din_int[17]_i_1_n_0 |                                                                                               |                5 |             18 |         3.60 |
 |  clk_IBUF_BUFG                                               |                                                                                            |                                                                                               |               11 |             47 |         4.27 |
 +--------------------------------------------------------------+--------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+------------------+----------------+--------------+

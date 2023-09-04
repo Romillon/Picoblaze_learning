@@ -2,6 +2,9 @@
 TO DO
 --------
 FINIR LE LEARNING (afficheurs  7 segs)
+too complicated with 4 digits from now
+
+
 Mail vers tuteurs pour leurx expliquer ce que je vais faire.
 
 Translate this in english

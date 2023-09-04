@@ -1,0 +1,43 @@
+E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd {0 {vcom -work work -2002 -explicit -stats=none E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Compiling package jtag_loader_pkg
+-- Compiling package body jtag_loader_pkg
+-- Loading package jtag_loader_pkg
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package jtag_loader_pkg
+** Error: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd(128): (vcom-1598) Library "unisim" not found.
+** Error: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd(129): (vcom-1136) Unknown identifier "unisim".
+** Error: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd(132): VHDL Compiler exiting
+
+} {12.0 15.0} {}} E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd {0 {vcom -work work -2002 -explicit -stats=none E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+** Error: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd(80): (vcom-1598) Library "unisim" not found.
+** Error: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd(81): (vcom-1136) Unknown identifier "unisim".
+** Error: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd(87): VHDL Compiler exiting
+
+} {8.0 11.0} {}} E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd {1 {vcom -work work -2002 -explicit -stats=none E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity main
+-- Compiling architecture Behavioral of main
+
+} {} {}} E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd {1 {vcom -work work -2002 -explicit -stats=none E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity seg7
+-- Compiling architecture Behavior of seg7
+
+} {} {}}

@@ -5,7 +5,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity main is
     Port ( clk   : in STD_LOGIC;
-           sw    : in STD_LOGIC_VECTOR (7 downto 0);
+           sw    : in STD_LOGIC_VECTOR (15 downto 0);
            leds  : out STD_LOGIC_VECTOR (15 downto 0);
            segs7 : out STD_LOGIC_VECTOR (6 downto 0);
            an    : out std_logic_vector(3 downto 0)
@@ -35,9 +35,11 @@ architecture Behavioral of main is
   end component;
 
   component seg7 is
-    Port (ABCD : in STD_LOGIC_VECTOR (15 downto 0);
-          seg  : out STD_LOGIC_VECTOR (6 downto 0)
-          an   : out std_logic_vector(3 downto 0));
+    Port (ABCD : in STD_LOGIC_VECTOR  (3 downto 0);
+          seg  : out STD_LOGIC_VECTOR (6 downto 0);
+          --an   : out std_logic_vector (3 downto 0);
+          --an_input
+          clk  : in std_logic);                                      --clk not used
   end component;
 
 
@@ -85,7 +87,7 @@ signal     int_request : std_logic;
 
 
 --signals for 7 seg : 
-signal HEX1 : std_logic_vector(15 downto 0);
+signal HEX1 : std_logic_vector(3 downto 0);
 --signal HEX2 : std_logic_vector(3 downto 0);
 --signal HEX3 : std_logic_vector(3 downto 0);
 --signal HEX4 : std_logic_vector(3 downto 0);
@@ -105,7 +107,7 @@ begin
             k_write_strobe => open,
                   out_port => out_port,
                read_strobe => open,
-                   in_port => sw,
+                   in_port => sw (7 downto 0),
                  interrupt => '0',
              interrupt_ack => open,
                      sleep => '0',
@@ -116,22 +118,22 @@ begin
 --  interrupt <= interrupt_ack;
 
 
-Display: seg7 
+Display1: seg7 
   port map ( ABCD => HEX1,
-            seg => segs7,
-            an=>an);
+  clk => clk,
+            seg => segs7);
 
 --Display2: seg7 
---  port map ( ABCD => HEX2,
---            seg => segs7 (13 downto 7));
+  --port map ( ABCD => HEX2,
+  --          seg => segs7 (13 downto 7));
 
 --Display3: seg7 
- -- port map ( ABCD => HEX3,
+  --port map ( ABCD => HEX3,
   --          seg => segs7 (20 downto 14));
 
 --Display4: seg7 
 --  port map ( ABCD => HEX4,
-  --          seg => segs7 (27 downto 21));
+--          seg => segs7 (27 downto 21));
 
 
 
@@ -150,26 +152,35 @@ Display: seg7
     begin
         if clk'event and clk='1' then
             if wr_en ='1' then
-                if port_id(0) ='0' then
+
+                if port_id ="00000000" then
                   leds(7 downto 0) <= out_port;  
                 end if;
-                if port_id(0) ='1' then
+
+                if port_id ="00000001" then                                 --port_id = 1
                   leds(15 downto 8) <= out_port;  
                 end if;
-                if port_id(0) ='2' then
-                  
-                  HEX1(3 downto 0) <= out_port;  
 
+                if port_id = "00000010" then                                --port_id = 2
+                  HEX1(3 downto 0) <= out_port(3 downto 0);  
+                  an <= out_port(7 downto 4);
                   end if;
-                if port_id(0) ='3' then
-                  HEX1(7 downto 4) <= out_port;  
-                end if;
-                if port_id(0) ='4' then
-                  HEX1(11 downto 8) <= out_port;  
-                end if;
-                if port_id(0) ='5' then
-                  HEX1(15 downto 12) <= out_port;  
-                end if;               
+
+--                if port_id(0) ='3' then
+ --                 HEX1(7 downto 4) <= out_port; 
+   --               an <= 0b01; 
+     --           end if;
+
+       --         if port_id(0) ='4' then
+         --         HEX1(11 downto 8) <= out_port;  
+           --       an <= 0b10;
+             --     end if;
+
+           --     if port_id(0) ='5' then
+             --     HEX1(15 downto 12) <= out_port;  
+               --   an <= 0b11;
+                 --end if;
+                
             end if;
 
         end if;

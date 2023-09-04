@@ -1,11 +1,17 @@
 -------------------
 TO DO
+I guess if I have the seg7.vhd file with an it should works
+add the s1 register in prog3.psm (2nd reg for switches)
+
+How to Implement a Test_bench in Vivado
+
+
 --------
 FINIR LE LEARNING (afficheurs  7 segs)
 too complicated with 4 digits from now
 
 
-Mail vers tuteurs pour leurx expliquer ce que je vais faire.
+
 
 Translate this in english
 DO the internship report

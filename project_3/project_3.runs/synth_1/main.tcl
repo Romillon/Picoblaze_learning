@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -88,7 +89,8 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd
-  E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog2.vhd
+  E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd
+  E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd
   E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd
 }
 OPTRACE "Adding files" END { }

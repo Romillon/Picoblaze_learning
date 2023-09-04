@@ -1,18 +1,18 @@
         DISABLE INTERRUPT
-LOAD s1,00            ; LED LSB 
-LOAD s2,00            ; LED MSB
-LOAD s3,00            ; 7SEG LSB 
-LOAD s4,00
-LOAD s5,00
-LOAD s6,00            ; 7SEG MSB
+LOAD s2,00            ; LED LSB 
+LOAD s3,00            ; LED MSB
+LOAD s4,00            ; 7SEG LSB 
 
 
 
+;for this one we want to send 2 digits
 
 
 BOUCLE :
         INPUT s0,00    ;The binary code coresponding to my switches are written here in s0.
-        
+        ;INPUT s1 --gérer ca avec les enables tsais
+
+
         COMPARE s0, 01      ; switch =1 ?
         JUMP Z, CASE01      ; if equal --> JUMP to location CASE01 after
         COMPARE s0, 02      ; switch =2 ?
@@ -37,7 +37,7 @@ BOUCLE :
         JUMP Z, CASE11     
         COMPARE s0, 0C     
         JUMP Z, CASE12     
-        COMPARE s0, 1D     
+        COMPARE s0, 0D     
         JUMP Z, CASE13     
         COMPARE s0, 0E     
         JUMP Z, CASE14     
@@ -46,164 +46,147 @@ BOUCLE :
         COMPARE s0, 10     
         JUMP Z, CASE16
         COMPARE s0, 00     
-        JUMP Z, CASE20
+        JUMP Z, CASE00
     
     PRINT:
-        OUTPUT s1,00     ;LEDS LSB
-        OUTPUT s2,01     ;LEDS MSB
-        OUTPUT s3,02     ;7SEG LSB
-        OUTPUT s4,03
-        OUTPUT s5,04
-        OUTPUT s6,05
+        OUTPUT s2,00     ;LEDS LSB
+        OUTPUT s3,01     ;LEDS MSB
+        OUTPUT s4,02     ;7SEG LSB
         JUMP BOUCLE
 
 CASE00 :
-    LOAD s1,00
-    LOAD s2,03
-    LOAD s3,00
-    LOAD s4,00
-    LOAD s5,00
-    LOAD s6,00 
-    JUMP PRINT
-CASE01 :
-    LOAD s1,01
-    LOAD s2,00
-    LOAD s3,04
-    LOAD s4,00
-    LOAD s5,01
-    LOA
-CASE02 :
-    LOAD s1,02
-    LOAD s2,00
-    LOAD s3,02
-    LOAD s4,00
-    LOAD s5,02
-    LOAD s6,00
-    JUMP PRINT
-
-CASE03 :
-    LOAD s1,04
     LOAD s2,00
     LOAD s3,03
-    LOAD s4,00
-    LOAD s5,03
-    LOAD s6,00
-    JUMP PRINT
+    LOAD s4,a0                                                  ;AN 7 downto 4       ABCD 3 downto 0     AN is active low ?      
+    JUMP PRINT                                      ;send digit 2nd
 
-CASE04 :
-    LOAD s1,08
-    LOAD s2,00
-    LOAD s3,04
-    LOAD s4,00
-    LOAD s5,04
-    LOAD s6,00
-    JUMP PRINT
 
-CASE05 :
-    LOAD s1,10
-    LOAD s2,00
-    LOAD s3,05
-    LOAD s4,00
-    LOAD s5,05
-    LOAD s6,00
-    JUMP PRINT
 
-CASE06 :
-    LOAD s1,20
-    LOAD s2,00
-    LOAD s3,06
-    LOAD s4,00
-    LOAD s5,06
-    LOAD s6,00
-    JUMP PRINT
-
-CASE07 :
-    LOAD s1,40
-    LOAD s2,00
-    LOAD s3,07
-    LOAD s4,00
-    LOAD s5,07
-    LOAD s6,00
-    JUMP PRINT
-
-CASE08 :
-    LOAD s1,80
-    LOAD s2,00
-    LOAD s3,08
-    LOAD s4,00
-    LOAD s5,08
-    LOAD s6,00
-    JUMP PRINT
-
-CASE09 :
-    LOAD s1,00
+CASE01 :
     LOAD s2,01
-    LOAD s3,09
-    LOAD s4,00
-    LOAD s5,09
-    LOAD s6,00
-    JUMP PRINT
-
-CASE10 :
-    LOAD s1,00
+    LOAD s3,00
+    LOAD s4,91                                                  ;AN 7 downto 4       ABCD 3 downto 0
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+    
+    CASE02 :
     LOAD s2,02
     LOAD s3,00
-    LOAD s4,01
-    LOAD s5,00
-    LOAD s6,01
-    JUMP PRINT
+    LOAD s4,92
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE03 :
+    LOAD s2,04
+    LOAD s3,00
+    LOAD s4,93
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE04 :
+    LOAD s2,08
+    LOAD s3,00
+    LOAD s4,94
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE05 :
+    LOAD s2,10
+    LOAD s3,00
+    LOAD s4,95
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE06 :
+    LOAD s2,20
+    LOAD s3,00
+    LOAD s4,96
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE07 :
+    LOAD s2,40
+    LOAD s3,00
+    LOAD s4,97
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE08 :
+    LOAD s2,80
+    LOAD s3,00
+    LOAD s4,98
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE09 :
+    LOAD s2,00
+    LOAD s3,01
+    LOAD s4,99
+    OUTPUT s4,02
+    LOAD s4,50
+        JUMP PRINT
+
+CASE10 :
+    LOAD s2,00
+    LOAD s3,02
+    LOAD s4,90
+    OUTPUT s4,02
+    LOAD s4,51
+        JUMP PRINT
 
 CASE11 :
-    LOAD s1,00
-    LOAD s2,04
-    LOAD s3,01
-    LOAD s4,01
-    LOAD s5,01
-    LOAD s6,01
-    JUMP PRINT
+    LOAD s2,00
+    LOAD s3,04
+    LOAD s4,91
+    OUTPUT s4,02
+    LOAD s4,51
+        JUMP PRINT
 
 CASE12 :
-    LOAD s1,00
-    LOAD s2,08
-    LOAD s3,02
-    LOAD s4,01
-    LOAD s5,02
-    LOAD s6,01
-    JUMP PRINT
+    LOAD s2,00
+    LOAD s3,08
+    LOAD s4,92
+    OUTPUT s4,02
+    LOAD s4,51
+        JUMP PRINT
 
 CASE13 :
-    LOAD s1,00
-    LOAD s2,10
-    LOAD s3,03
-    LOAD s4,01
-    LOAD s5,03
-    LOAD s6,01
-    JUMP PRINT
+    LOAD s2,00
+    LOAD s3,10
+    LOAD s4,93
+    OUTPUT s4,02
+    LOAD s4,51
+        JUMP PRINT
 
 CASE14 :
-    LOAD s1,00
-    LOAD s2,20
-    LOAD s3,04
-    LOAD s4,01
-    LOAD s5,04
-    LOAD s6,01
-    JUMP PRINT
+    LOAD s2,00
+    LOAD s3,20
+    LOAD s4,94
+    OUTPUT s4,02
+    LOAD s4,51
+        JUMP PRINT
 
 CASE15 :
-    LOAD s1,00
-    LOAD s2,40
-    LOAD s3,05
-    LOAD s4,01
-    LOAD s5,05
-    LOAD s6,01
-    JUMP PRINT
+    LOAD s2,00
+    LOAD s3,40
+    LOAD s4,95
+    OUTPUT s4,02
+    LOAD s4,51
+        JUMP PRINT
 
 CASE16 :
-    LOAD s1,00
-    LOAD s2,80
-    LOAD s3,06
-    LOAD s4,01
-    LOAD s5,06
-    LOAD s6,01
-    JUMP PRINT
+    LOAD s2,00
+    LOAD s3,80
+    LOAD s4,96
+    OUTPUT s4,02
+    LOAD s4,51
+        JUMP PRINT
 

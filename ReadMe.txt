@@ -3,7 +3,7 @@ TO DO
 I guess if I have the seg7.vhd file with an it should works
 add the s1 register in prog3.psm (2nd reg for switches)
 
-How to Implement a Test_bench in Vivado
+Le probleme doit venir du fait que j'envoie 2 choses en mem temps au 7seg display so maybe i have to do des enables "comme pour les input"  
 
 
 --------

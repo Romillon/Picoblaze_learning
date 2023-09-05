@@ -47,118 +47,118 @@ BOUCLE:
         JUMP BOUCLE
 CASE00: 
         LOAD s2, 00
-        LOAD s3, 03
-        LOAD s4, A0       ;AN 7 downto 4       ABCD 3 downto 0     AN is active low ?
+        LOAD s3, 00
+        LOAD s4, 00       ;AN 7 downto 4       ABCD 3 downto 0     AN is active low ?
         JUMP PRINT        ;send digit 2nd
 CASE01: 
         LOAD s2, 01
         LOAD s3, 00
-        LOAD s4, 91       ;AN 7 downto 4       ABCD 3 downto 0
-        OUTPUT s4, 02
-        LOAD s4, 50
+        LOAD s4, A1       ;AN 7 downto 4       ABCD 3 downto 0
+        ;OUTPUT s4,02
+        ;LOAD s4,50
         JUMP PRINT
 CASE02: 
         LOAD s2, 02
         LOAD s3, 00
-        LOAD s4, 92
-        OUTPUT s4, 02
+        ;LOAD s4,a2
+        ;OUTPUT s4,02
         LOAD s4, 50
         JUMP PRINT
 CASE03: 
         LOAD s2, 04
         LOAD s3, 00
-        LOAD s4, 93
+        LOAD s4, A3
         OUTPUT s4, 02
         LOAD s4, 50
         JUMP PRINT
 CASE04: 
         LOAD s2, 08
         LOAD s3, 00
-        LOAD s4, 94
+        LOAD s4, A4
         OUTPUT s4, 02
         LOAD s4, 50
         JUMP PRINT
 CASE05: 
         LOAD s2, 10
         LOAD s3, 00
-        LOAD s4, 95
+        LOAD s4, A5
         OUTPUT s4, 02
         LOAD s4, 50
         JUMP PRINT
 CASE06: 
         LOAD s2, 20
         LOAD s3, 00
-        LOAD s4, 96
+        LOAD s4, A6
         OUTPUT s4, 02
         LOAD s4, 50
         JUMP PRINT
 CASE07: 
         LOAD s2, 40
         LOAD s3, 00
-        LOAD s4, 97
+        LOAD s4, A7
         OUTPUT s4, 02
         LOAD s4, 50
         JUMP PRINT
 CASE08: 
         LOAD s2, 80
         LOAD s3, 00
-        LOAD s4, 98
+        LOAD s4, A8
         OUTPUT s4, 02
         LOAD s4, 50
         JUMP PRINT
 CASE09: 
         LOAD s2, 00
         LOAD s3, 01
-        LOAD s4, 99
+        LOAD s4, A9
         OUTPUT s4, 02
         LOAD s4, 50
         JUMP PRINT
 CASE10: 
         LOAD s2, 00
         LOAD s3, 02
-        LOAD s4, 90
+        LOAD s4, A0
         OUTPUT s4, 02
         LOAD s4, 51
         JUMP PRINT
 CASE11: 
         LOAD s2, 00
         LOAD s3, 04
-        LOAD s4, 91
+        LOAD s4, A1
         OUTPUT s4, 02
         LOAD s4, 51
         JUMP PRINT
 CASE12: 
         LOAD s2, 00
         LOAD s3, 08
-        LOAD s4, 92
+        LOAD s4, A2
         OUTPUT s4, 02
         LOAD s4, 51
         JUMP PRINT
 CASE13: 
         LOAD s2, 00
         LOAD s3, 10
-        LOAD s4, 93
+        LOAD s4, A3
         OUTPUT s4, 02
         LOAD s4, 51
         JUMP PRINT
 CASE14: 
         LOAD s2, 00
         LOAD s3, 20
-        LOAD s4, 94
+        LOAD s4, A4
         OUTPUT s4, 02
         LOAD s4, 51
         JUMP PRINT
 CASE15: 
         LOAD s2, 00
         LOAD s3, 40
-        LOAD s4, 95
+        LOAD s4, A5
         OUTPUT s4, 02
         LOAD s4, 51
         JUMP PRINT
 CASE16: 
         LOAD s2, 00
         LOAD s3, 80
-        LOAD s4, 96
+        LOAD s4, A6
         OUTPUT s4, 02
         LOAD s4, 51
         JUMP PRINT

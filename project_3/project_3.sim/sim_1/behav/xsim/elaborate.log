@@ -1,6 +1,6 @@
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: E:/Vivado/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 317cb4f24b3c417da9378d28afea8fd3 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot main_behav xil_defaultlib.main -log elaborate.log 
+Running: E:/Vivado/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 317cb4f24b3c417da9378d28afea8fd3 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Test_Bench2_behav xil_defaultlib.Test_Bench2 -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -71,5 +71,6 @@ Compiling architecture bscane2_v of entity unisim.BSCANE2 [\BSCANE2(jtag_chain=2
 Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
 Compiling architecture behavioral of entity xil_defaultlib.jtag_loader_6 [\jtag_loader_6(c_family="7S",c_b...]
 Compiling architecture low_level_definition of entity xil_defaultlib.prog3 [\prog3(c_family="7S",c_ram_size_...]
-Compiling architecture behavioral of entity xil_defaultlib.main
-Built simulation snapshot main_behav
+Compiling architecture behavioral of entity xil_defaultlib.main [main_default]
+Compiling architecture behavioral of entity xil_defaultlib.test_bench2
+Built simulation snapshot Test_Bench2_behav

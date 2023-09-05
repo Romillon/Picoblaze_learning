@@ -120,7 +120,7 @@ begin
 
 Display1: seg7 
   port map ( ABCD => HEX1,
-  clk => clk,
+            clk => clk,
             seg => segs7);
 
 --Display2: seg7 

@@ -7,7 +7,7 @@ entity main_tb is
 end main_tb;
 
 architecture Behavioral of main_tb is
-    signal clk  std_logic = '0';
+    signal clk  std_logic := '0';
     signal sw  std_logic_vector(15 downto 0) = (others = '0'); -- Initialisation des commutateurs à zéro
     signal leds  std_logic_vector(15 downto 0);
     signal segs7  std_logic_vector(6 downto 0);
@@ -45,7 +45,7 @@ begin
         -- Ajoutez ici les instructions pour configurer les signaux de test
         -- Par exemple, pour changer l'état des commutateurs après 20 ns 
         wait for 20 ns;
-        sw = 1010101010101010; -- Exemple de nouvelles valeurs des commutateurs
+        sw = "1010101010101010"; -- Exemple de nouvelles valeurs des commutateurs
 
         wait;
     end process;

@@ -1,11 +1,12 @@
         DISABLE INTERRUPT
         LOAD s2, 00       ; LED LSB
         LOAD s3, 00       ; LED MSB
-        LOAD s4, 00       ; 7SEG LSB
+        LOAD s4, 00       ; 7SEG
+        ;abcd efgh
         ;for this one we want to send 2 digits
 BOUCLE: 
         INPUT s0, 00      ;The binary code coresponding to my switches are written here in s0.
-        ;INPUT s1 --gérer ca avec les enables tsais
+        ;INPUT s1 -- handle this with the enable signals later for the other 8 bits
         COMPARE s0, 01    ; switch =1 ?
         JUMP Z, CASE01    ; if equal --> JUMP to location CASE01 after
         COMPARE s0, 02    ; switch =2 ?
@@ -43,33 +44,33 @@ BOUCLE:
  PRINT: 
         OUTPUT s2, 00     ;LEDS LSB
         OUTPUT s3, 01     ;LEDS MSB
-        OUTPUT s4, 02     ;7SEG LSB
+        OUTPUT s4, 02     ;7SEG
         JUMP BOUCLE
 CASE00: 
         LOAD s2, 00
         LOAD s3, 00
-        LOAD s4, 00       ;AN 7 downto 4       ABCD 3 downto 0     AN is active low ?
+        LOAD s4, 00       ;AN 7 downto 4       ABCD 3 downto 0     AN is active low
         JUMP PRINT        ;send digit 2nd
 CASE01: 
         LOAD s2, 01
         LOAD s3, 00
-        LOAD s4, A1       ;AN 7 downto 4       ABCD 3 downto 0
+        LOAD s4, A1       ;digits 3 and 1 to "1"
         ;OUTPUT s4,02
-        ;LOAD s4,50
+        ;LOAD s4,d0
         JUMP PRINT
 CASE02: 
         LOAD s2, 02
         LOAD s3, 00
-        ;LOAD s4,a2
+        LOAD s4, A2
         ;OUTPUT s4,02
-        LOAD s4, 50
+        ;LOAD s4,d0                                                  ;digits 4 and 2 to "0"
         JUMP PRINT
 CASE03: 
         LOAD s2, 04
         LOAD s3, 00
         LOAD s4, A3
-        OUTPUT s4, 02
-        LOAD s4, 50
+        ;OUTPUT s4,02
+        ;LOAD s4,d0
         JUMP PRINT
 CASE04: 
         LOAD s2, 08
@@ -81,9 +82,17 @@ CASE04:
 CASE05: 
         LOAD s2, 10
         LOAD s3, 00
+        OUTPUT s4, 02
+        OUTPUT s4, 02
+        OUTPUT s4, 02
         LOAD s4, A5
         OUTPUT s4, 02
+        OUTPUT s4, 02
+        OUTPUT s4, 02
+        OUTPUT s4, 02
         LOAD s4, 50
+        OUTPUT s4, 02
+        OUTPUT s4, 02
         JUMP PRINT
 CASE06: 
         LOAD s2, 20

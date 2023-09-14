@@ -35,11 +35,11 @@ architecture Behavioral of main is
   end component;
 
   component seg7 is
-    Port (ABCD : in STD_LOGIC_VECTOR  (3 downto 0);
-          seg  : out STD_LOGIC_VECTOR (6 downto 0);
-          --an   : out std_logic_vector (3 downto 0);
-          --an_input
-          clk  : in std_logic);                                      --clk not used
+    Port (ABCD      : in STD_LOGIC_VECTOR  (3 downto 0);
+          seg       : out STD_LOGIC_VECTOR (6 downto 0);
+          an        : out std_logic_vector (3 downto 0);
+          an_input  : in std_logic_vector (3 downto 0);
+          clk       : in std_logic);                                      --clk not used
   end component;
 
 
@@ -88,6 +88,13 @@ signal     int_request : std_logic;
 
 --signals for 7 seg : 
 signal HEX1 : std_logic_vector(3 downto 0);
+signal ANODE_ACTIVATE : std_logic_vector(3 downto 0);
+
+
+signal WR4 :std_logic :='1';      --for 7segment display "enable"
+signal WR5 :std_logic :='0';
+signal WR6 :std_logic :='1';
+signal WR7 :std_logic :='0';
 --signal HEX2 : std_logic_vector(3 downto 0);
 --signal HEX3 : std_logic_vector(3 downto 0);
 --signal HEX4 : std_logic_vector(3 downto 0);
@@ -119,9 +126,11 @@ begin
 
 
 Display1: seg7 
-  port map ( ABCD => HEX1,
-            clk => clk,
-            seg => segs7);
+  port map (ABCD     => HEX1,
+            an_input => ANODE_ACTIVATE,
+            clk      => clk,
+            seg      => segs7,
+            an       => an);
 
 --Display2: seg7 
   --port map ( ABCD => HEX2,
@@ -162,8 +171,14 @@ Display1: seg7
                 end if;
 
                 if port_id = "00000010" then                                --port_id = 2
-                  HEX1(3 downto 0) <= out_port(3 downto 0);  
-                  an <= out_port(7 downto 4);
+                  HEX1(3 downto 0) <= out_port(3 downto 0);                 --
+                  
+                  --  "and gates cf diagram he sent me on outlook  "
+
+
+
+
+                  ANODE_ACTIVATE <= out_port(7 downto 4);
                   end if;
 
 --                if port_id(0) ='3' then

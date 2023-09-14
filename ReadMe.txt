@@ -6,6 +6,12 @@ add the s1 register in prog3.psm (2nd reg for switches)
 Le probleme doit venir du fait que j'envoie 2 choses en mem temps au 7seg display so maybe i have to do des enables "comme pour les input"  
 
 
+
+lookk at main loop
+
+bad contact with SW1
+
+
 --------
 FINIR LE LEARNING (afficheurs  7 segs)
 too complicated with 4 digits from now
@@ -43,5 +49,3 @@ Things I sould try  :
 
 
 
-
--- Troubles to use The Fidex program.

@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Sep  5 17:33:54 2023
-# Process ID: 12456
+# Start of session at: Wed Sep 13 19:02:35 2023
+# Process ID: 5568
 # Current directory: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/synth_1/main.vds
@@ -17,15 +17,15 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6168
+INFO: [Synth 8-7075] Helper process launched with PID 6020
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'main' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:15]
 	Parameter hwbuild bound to: 8'b00000000 
 	Parameter interrupt_vector bound to: 12'b001111111111 
 	Parameter scratch_pad_memory_size bound to: 64 - type: integer 
-INFO: [Synth 8-3491] module 'kcpsm6' declared at 'E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd:87' bound to instance 'processor' of component 'kcpsm6' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:98]
+INFO: [Synth 8-3491] module 'kcpsm6' declared at 'E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd:87' bound to instance 'processor' of component 'kcpsm6' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:105]
 INFO: [Synth 8-638] synthesizing module 'kcpsm6' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd:111]
 	Parameter hwbuild bound to: 8'b00000000 
 	Parameter interrupt_vector bound to: 12'b001111111111 
@@ -365,14 +365,14 @@ INFO: [Common 17-14] Message 'Synth 8-113' appears 100 times and further instanc
 	Parameter INIT_D bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
 	Parameter IS_WCLK_INVERTED bound to: 1'b0 
 INFO: [Synth 8-256] done synthesizing module 'kcpsm6' (1#1) [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd:111]
-INFO: [Synth 8-3491] module 'seg7' declared at 'E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd:4' bound to instance 'Display1' of component 'seg7' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:121]
+INFO: [Synth 8-3491] module 'seg7' declared at 'E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd:4' bound to instance 'Display1' of component 'seg7' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:128]
 INFO: [Synth 8-638] synthesizing module 'seg7' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd:15]
-INFO: [Synth 8-226] default block is never used [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd:19]
+INFO: [Synth 8-226] default block is never used [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'seg7' (2#1) [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd:15]
 	Parameter C_FAMILY bound to: 7S - type: string 
 	Parameter C_RAM_SIZE_KWORDS bound to: 2 - type: integer 
 	Parameter C_JTAG_LOADER_ENABLE bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'prog3' declared at 'E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd:132' bound to instance 'program_rom' of component 'prog3' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:140]
+INFO: [Synth 8-3491] module 'prog3' declared at 'E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd:132' bound to instance 'program_rom' of component 'prog3' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:149]
 INFO: [Synth 8-638] synthesizing module 'prog3' [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd:143]
 	Parameter C_FAMILY bound to: 7S - type: string 
 	Parameter C_RAM_SIZE_KWORDS bound to: 2 - type: integer 
@@ -381,8 +381,8 @@ INFO: [Synth 8-638] synthesizing module 'prog3' [E:/ISEN/VIVADO_stage_m1/PicoBla
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
 	Parameter EN_ECC_WRITE bound to: 0 - type: bool 
-	Parameter INITP_00 bound to: 256'b0010001000000010001000000010001000000010001000000010001000000010001000000010001000000010001000000010001000000010001000000010001000000010001000000010000000100000001000000010101010110111011101110111011101110111011101110111011101110111011101110111010000000010 
-	Parameter INITP_01 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000100000001000100000 
+	Parameter INITP_00 bound to: 256'b0010001000000010001000000010001000000010001000000010001000000010001000000010001000000010001000000010101000101010100010101000001000100000001000000010000000100000001000000010101010110111011101110111011101110111011101110111011101110111011101110111010000000010 
+	Parameter INITP_01 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000100000001000100000001000100000 
 	Parameter INITP_02 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_03 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_04 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -397,16 +397,16 @@ INFO: [Synth 8-638] synthesizing module 'prog3' [E:/ISEN/VIVADO_stage_m1/PicoBla
 	Parameter INITP_0D bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_0E bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_0F bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter INIT_00 bound to: 256'b1101000000000110001000000100001111010000000001010010000000111101110100000000010000100000001101111101000000000011001000000011001111010000000000100010000000101111110100000000000110010000000000000001010000000000000100110000000000010010000000001000000000000000 
-	Parameter INIT_01 bound to: 256'b1101000000001110001000000111001111010000000011010010000001101101110100000000110000100000011001111101000000001011001000000110000111010000000010100010000001011011110100000000100100100000010101011101000000001000001000000100111111010000000001110010000001001001 
-	Parameter INIT_02 bound to: 256'b0001001000000001001000000010011100010100000000000001001100000000000100100000000000100000000001001101010000000010110100110000000111010010000000000010000000101011110100000000000000100000100001011101000000010000001000000111111111010000000011110010000001111001 
-	Parameter INIT_03 bound to: 256'b0001010010100100000100110000000000010010000010000010000000100111000101000101000011010100000000100001010010100011000100110000000000010010000001000010000000100111000101000101000000010011000000000001001000000010001000000010011100010100101000010001001100000000 
-	Parameter INIT_04 bound to: 256'b0001001001000000001000000010011100010100010100001101010000000010000101001010011000010011000000000001001000100000001000000010011100010100010100001101010000000010000101001010010100010011000000000001001000010000001000000010011100010100010100001101010000000010 
-	Parameter INIT_05 bound to: 256'b0001010001010000110101000000001000010100101010010001001100000001000100100000000000100000001001110001010001010000110101000000001000010100101010000001001100000000000100101000000000100000001001110001010001010000110101000000001000010100101001110001001100000000 
-	Parameter INIT_06 bound to: 256'b0001010010100010000100110000100000010010000000000010000000100111000101000101000111010100000000100001010010100001000100110000010000010010000000000010000000100111000101000101000111010100000000100001010010100000000100110000001000010010000000000010000000100111 
-	Parameter INIT_07 bound to: 256'b0001001000000000001000000010011100010100010100011101010000000010000101001010010000010011001000000001001000000000001000000010011100010100010100011101010000000010000101001010001100010011000100000001001000000000001000000010011100010100010100011101010000000010 
-	Parameter INIT_08 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001001110001010001010001110101000000001000010100101001100001001110000000000100100000000000100000001001110001010001010001110101000000001000010100101001010001001101000000 
-	Parameter INIT_09 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter INIT_00 bound to: 256'b1101000000000110001000000100000111010000000001010010000000111011110100000000010000100000001101111101000000000011001000000011001111010000000000100010000000101111110100000000000110010000000000000001010000000000000100110000000000010010000000001000000000000000 
+	Parameter INIT_01 bound to: 256'b1101000000001110001000000111100111010000000011010010000001110011110100000000110000100000011011011101000000001011001000000110011111010000000010100010000001100001110100000000100100100000010110111101000000001000001000000101010111010000000001110010000001001111 
+	Parameter INIT_02 bound to: 256'b0001001000000001001000000010011100010100000000000001001100000000000100100000000000100000000001001101010000000010110100110000000111010010000000000010000000101011110100000000000000100000100010111101000000010000001000001000010111010000000011110010000001111111 
+	Parameter INIT_03 bound to: 256'b0001010001010000110101000000001000010100101001000001001100000000000100100000100000100000001001110001010010100011000100110000000000010010000001000010000000100111000101001010001000010011000000000001001000000010001000000010011100010100101000010001001100000000 
+	Parameter INIT_04 bound to: 256'b0001001000100000001000000010011111010100000000101101010000000010000101000101000011010100000000101101010000000010110101000000001011010100000000100001010010100101110101000000001011010100000000101101010000000010000100110000000000010010000100000010000000100111 
+	Parameter INIT_05 bound to: 256'b0001010001010000110101000000001000010100101010000001001100000000000100101000000000100000001001110001010001010000110101000000001000010100101001110001001100000000000100100100000000100000001001110001010001010000110101000000001000010100101001100001001100000000 
+	Parameter INIT_06 bound to: 256'b0001010010100001000100110000010000010010000000000010000000100111000101000101000111010100000000100001010010100000000100110000001000010010000000000010000000100111000101000101000011010100000000100001010010101001000100110000000100010010000000000010000000100111 
+	Parameter INIT_07 bound to: 256'b0001001000000000001000000010011100010100010100011101010000000010000101001010001100010011000100000001001000000000001000000010011100010100010100011101010000000010000101001010001000010011000010000001001000000000001000000010011100010100010100011101010000000010 
+	Parameter INIT_08 bound to: 256'b0001010001010001110101000000001000010100101001100001001110000000000100100000000000100000001001110001010001010001110101000000001000010100101001010001001101000000000100100000000000100000001001110001010001010001110101000000001000010100101001000001001100100000 
+	Parameter INIT_09 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100111 
 	Parameter INIT_0A bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_0B bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_0C bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -588,18 +588,18 @@ INFO: [Synth 8-256] done synthesizing module 'jtag_loader_6' (3#1) [E:/ISEN/VIVA
 INFO: [Synth 8-256] done synthesizing module 'prog3' (4#1) [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd:143]
 INFO: [Synth 8-256] done synthesizing module 'main' (5#1) [E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd:15]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1015.477 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 181 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -612,7 +612,7 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1015.477 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 124 instances were transformed.
   FD => FDRE: 48 instances
@@ -621,25 +621,25 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
   RAM64M => RAM64M (RAMD64E(x4)): 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.102 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.133 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:18 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:19 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -650,7 +650,8 @@ Detailed RTL Component Info :
 	               16 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
-	                4 Bit    Registers := 2     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
 	                1 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input   18 Bit        Muxes := 9     
@@ -674,25 +675,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:28 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:28 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:28 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:28 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:28 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:28 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -710,37 +711,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -770,23 +771,23 @@ Report Cell Usage:
 |13    |XORCY    |    27|
 |14    |FD       |    45|
 |15    |FDR      |    18|
-|16    |FDRE     |    75|
+|16    |FDRE     |    86|
 |17    |IBUF     |     9|
 |18    |OBUF     |    27|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 1005.164 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:29 . Memory (MB): peak = 1015.477 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:32 . Memory (MB): peak = 1015.477 ; gain = 0.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1005.164 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1015.477 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 176 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1016.664 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1020.176 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 129 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 10 instances
@@ -799,7 +800,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 133 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:39 . Memory (MB): peak = 1016.664 ; gain = 11.500
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:42 . Memory (MB): peak = 1020.176 ; gain = 4.699
 INFO: [Common 17-1381] The checkpoint 'E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Sep  5 17:34:49 2023...
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 13 19:03:36 2023...

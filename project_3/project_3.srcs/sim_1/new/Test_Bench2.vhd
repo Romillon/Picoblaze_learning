@@ -46,7 +46,7 @@ architecture Behavioral of Test_Bench2 is
                );
     end component;
 
-constant clk_period : time := 20ns;
+constant clk_period : time := 100ns;
 
 signal               clk_tb   : STD_LOGIC:='0';
 signal               sw_tb    : STD_LOGIC_VECTOR (15 downto 0);
@@ -78,17 +78,17 @@ begin
     process
         begin
         sw_tb<="0000000000000000";
-        wait for clk_period;
+        wait for 16*clk_period;
         sw_tb<="0000000000000001";
-        wait for clk_period;
+        wait for 16*clk_period;
         sw_tb<="0000000000000010";
-        wait for clk_period;
+        wait for 16*clk_period;
         sw_tb<="0000000000000100";
-        wait for clk_period;
+        wait for 16*clk_period;
         sw_tb<="0000000000001000";
-        wait for clk_period;
+        wait for 16*clk_period;
         sw_tb<="0000000000010000";
-        wait for clk_period;
+        wait for 16*clk_period;
     end process ;
 
 

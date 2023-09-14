@@ -2,8 +2,13 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+<<<<<<< HEAD
 # Start of session at: Mon Sep  4 14:31:05 2023
 # Process ID: 10748
+=======
+# Start of session at: Wed Sep 13 19:02:35 2023
+# Process ID: 5568
+>>>>>>> experiments
 # Current directory: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/synth_1/main.vds

@@ -1,45 +1,20 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 15.08.2023 14:55:55
--- Design Name: 
--- Module Name: main - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity main is
-    Port ( clk : in STD_LOGIC;
-           sw : in STD_LOGIC_VECTOR (7 downto 0);
-           leds : out STD_LOGIC_VECTOR (15 downto 0));
+    Port ( clk   : in STD_LOGIC;
+           sw    : in STD_LOGIC_VECTOR (15 downto 0);
+           leds  : out STD_LOGIC_VECTOR (15 downto 0);
+           segs7 : out STD_LOGIC_VECTOR (6 downto 0);
+           an    : out std_logic_vector(3 downto 0)
+           );
 end main;
 
 architecture Behavioral of main is
 
- component kcpsm6 
+  component kcpsm6 
     generic(                 hwbuild : std_logic_vector(7 downto 0) := X"00";
                     interrupt_vector : std_logic_vector(11 downto 0) := X"3FF";
              scratch_pad_memory_size : integer := 64);
@@ -59,9 +34,16 @@ architecture Behavioral of main is
                                  clk : in std_logic);
   end component;
 
+  component seg7 is
+    Port (ABCD      : in STD_LOGIC_VECTOR  (3 downto 0);
+          seg       : out STD_LOGIC_VECTOR (6 downto 0);
+          an        : out std_logic_vector (3 downto 0);
+          an_input  : in std_logic_vector (3 downto 0);
+          clk       : in std_logic);                                      --clk not used
+  end component;
 
 
-  component prog2                            
+  component prog3                            
     generic(             C_FAMILY : string := "S6"; 
                 C_RAM_SIZE_KWORDS : integer := 1;
              C_JTAG_LOADER_ENABLE : integer := 0);
@@ -104,6 +86,21 @@ signal             rdl : std_logic;
 signal     int_request : std_logic;
 
 
+--signals for 7 seg : 
+signal HEX1 : std_logic_vector(3 downto 0);
+signal ANODE_ACTIVATE : std_logic_vector(3 downto 0);
+
+
+signal WR4 :std_logic :='1';      --for 7segment display "enable"
+signal WR5 :std_logic :='0';
+signal WR6 :std_logic :='1';
+signal WR7 :std_logic :='0';
+--signal HEX2 : std_logic_vector(3 downto 0);
+--signal HEX3 : std_logic_vector(3 downto 0);
+--signal HEX4 : std_logic_vector(3 downto 0);
+
+
+
 begin
      processor: kcpsm6
     generic map (                 hwbuild => X"00", 
@@ -117,7 +114,7 @@ begin
             k_write_strobe => open,
                   out_port => out_port,
                read_strobe => open,
-                   in_port => sw,
+                   in_port => sw (7 downto 0),
                  interrupt => '0',
              interrupt_ack => open,
                      sleep => '0',
@@ -128,8 +125,28 @@ begin
 --  interrupt <= interrupt_ack;
 
 
+Display1: seg7 
+  port map (ABCD     => HEX1,
+            an_input => ANODE_ACTIVATE,
+            clk      => clk,
+            seg      => segs7,
+            an       => an);
 
-  program_rom: prog2                              --Name to match your PSM file
+--Display2: seg7 
+  --port map ( ABCD => HEX2,
+  --          seg => segs7 (13 downto 7));
+
+--Display3: seg7 
+  --port map ( ABCD => HEX3,
+  --          seg => segs7 (20 downto 14));
+
+--Display4: seg7 
+--  port map ( ABCD => HEX4,
+--          seg => segs7 (27 downto 21));
+
+
+
+  program_rom: prog3                              --Name to match your PSM file
     generic map(             C_FAMILY => "7S",   --Family 'S6', 'V6' or '7S'
                     C_RAM_SIZE_KWORDS => 2,      --Program size '1', '2' or '4'
                  C_JTAG_LOADER_ENABLE => 1)      --Include JTAG Loader when set to '1' 
@@ -144,12 +161,41 @@ begin
     begin
         if clk'event and clk='1' then
             if wr_en ='1' then
-                if port_id(0) ='0' then
+
+                if port_id ="00000000" then
                   leds(7 downto 0) <= out_port;  
                 end if;
-                if port_id(0) ='1' then
+
+                if port_id ="00000001" then                                 --port_id = 1
                   leds(15 downto 8) <= out_port;  
-                end if;               
+                end if;
+
+                if port_id = "00000010" then                                --port_id = 2
+                  HEX1(3 downto 0) <= out_port(3 downto 0);                 --
+                  
+                  --  "and gates cf diagram he sent me on outlook  "
+
+
+
+
+                  ANODE_ACTIVATE <= out_port(7 downto 4);
+                  end if;
+
+--                if port_id(0) ='3' then
+ --                 HEX1(7 downto 4) <= out_port; 
+   --               an <= 0b01; 
+     --           end if;
+
+       --         if port_id(0) ='4' then
+         --         HEX1(11 downto 8) <= out_port;  
+           --       an <= 0b10;
+             --     end if;
+
+           --     if port_id(0) ='5' then
+             --     HEX1(15 downto 12) <= out_port;  
+               --   an <= 0b11;
+                 --end if;
+                
             end if;
 
         end if;

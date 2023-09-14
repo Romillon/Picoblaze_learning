@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
 	<Run Id="synth_1" LaunchDir="E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+<<<<<<< HEAD
 	<Run Id="impl_1" LaunchDir="E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="route_design">
+=======
+	<Run Id="impl_1" LaunchDir="E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+>>>>>>> experiments
 		<Parent Id="synth_1"/>
 	</Run>
 	<Parameters>

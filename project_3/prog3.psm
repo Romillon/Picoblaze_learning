@@ -1,200 +1,210 @@
+; REGISTERS 00     O1  SWs    02  BUTTONS                                  03 LEDS_LSB  04   LEDS_MSB    05 7_SEG            06 Enable_register
+; PORT_ID              ""           ""                                              ""          ""          7SEG_WIND               7SEG_Solar                  
+
+
+
         DISABLE INTERRUPT
-LOAD s2,00            ; LED LSB 
-LOAD s3,00            ; LED MSB
-LOAD s4,00            ; 7SEG 
-
-;abcd efgh
-
-;for this one we want to send 2 digits
+;LOAD s3,00            ; LED LSB 
+;LOAD s4,00            ; LED MSB
+;LOAD s5,00            ; 7SEG 
 
 
-BOUCLE :
-        INPUT s0,00    ;The binary code coresponding to my switches are written here in s0.
-        ;INPUT s1 -- handle this with the enable signals later for the other 8 bits
 
 
-        COMPARE s0, 01      ; switch =1 ?
-        JUMP Z, CASE01      ; if equal --> JUMP to location CASE01 after
-        COMPARE s0, 02      ; switch =2 ?
-        JUMP Z, CASE02     
-        COMPARE s0, 03      ; switch =3 ?
-        JUMP Z, CASE03     
-        COMPARE s0, 04      ; switch =4 ?
-        JUMP Z, CASE04     
-        COMPARE s0, 05      ; switch =5 ?
-        JUMP Z, CASE05     
-        COMPARE s0, 06      ; switch =6 ?
-        JUMP Z, CASE06     
-        COMPARE s0, 07      ; switch =7 ?
-        JUMP Z, CASE07             
-        COMPARE s0, 08     
-        JUMP Z, CASE08     
-        COMPARE s0, 09     
-        JUMP Z, CASE09     
-        COMPARE s0, 0A     
-        JUMP Z, CASE10     
-        COMPARE s0, 0B     
-        JUMP Z, CASE11     
-        COMPARE s0, 0C     
-        JUMP Z, CASE12     
-        COMPARE s0, 0D     
-        JUMP Z, CASE13     
-        COMPARE s0, 0E     
-        JUMP Z, CASE14     
-        COMPARE s0, 0F     
-        JUMP Z, CASE15     
-        COMPARE s0, 10     
-        JUMP Z, CASE16
+WIND :
+        INPUT s0,01    ;SW_LSB reg
+        INPUT s1,00    ;SW_MSB reg
+        INPUT s2,02    ;Buttons reg
+        
+
+
+
+
+
+
         COMPARE s0, 00     
-        JUMP Z, CASE00
+        JUMP Z, WIND_CASE00
+        COMPARE s0, 01                          ; switch FROM port_id=01 ?  so here should be SW 15 --> 8         CONTINUE THE EXPLANATION OF THE PB
+                                                ; but only the fourth first switches have an effect so I don't understand why.
+
+                                                ; I know for sure it enters the Solar_section because the leds are affected by the swwitch combination
+                                                ; To me I feel they share the same register like s0=s1 but it shouldn't 
+
+
+        JUMP Z, WIND_CASE01      
+        COMPARE s0, 02      ; switch =2 ?
+        JUMP Z, WIND_CASE02     ; if equal --> JUMP to location WIND_CASE02
+        COMPARE s0, 03      ; switch =3 ?
+        JUMP Z, WIND_CASE03     
+        COMPARE s0, 04      
+        JUMP Z, WIND_CASE04     
+        COMPARE s0, 05      
+        JUMP Z, WIND_CASE05     
+        COMPARE s0, 06      
+        JUMP Z, WIND_CASE06     
+        COMPARE s0, 07      
+        JUMP Z, WIND_CASE07             
+        COMPARE s0, 08     
+        JUMP Z, WIND_CASE08     
+        COMPARE s0, 09     
+        JUMP Z, WIND_CASE09
+        JUMP WIND     
+
+SOLAR :
+        COMPARE s1, 00     
+        JUMP Z, SOLAR_CASE00
+        COMPARE s1, 01      ; switch =1 ?
+        JUMP Z, SOLAR_CASE01      ; if equal --> JUMP to location CASE01 after
+        COMPARE s1, 02      ; switch =2 ?
+        JUMP Z, SOLAR_CASE02     
+        COMPARE s1, 03      ; switch =3 ?
+        JUMP Z, SOLAR_CASE03     
+        COMPARE s1, 04      
+        JUMP Z, SOLAR_CASE04     
+        COMPARE s1, 05      
+        JUMP Z, SOLAR_CASE05     
+        COMPARE s1, 06      
+        JUMP Z, SOLAR_CASE06     
+        COMPARE s1, 07      
+        JUMP Z, SOLAR_CASE07             
+        COMPARE s1, 08     
+        JUMP Z, SOLAR_CASE08     
+        COMPARE s1, 09     
+        JUMP Z, SOLAR_CASE09
+        JUMP SOLAR
+;________________________________________________________________________________     OK until there => we'll add the cases for buttons later on
     
-    PRINT:
-        OUTPUT s2,00     ;LEDS LSB
-        OUTPUT s3,01     ;LEDS MSB
-        OUTPUT s4,02     ;7SEG 
-        JUMP BOUCLE
 
-CASE00 :
-    LOAD s2,00
-    LOAD s3,00
-    LOAD s4,00                                                  ;AN 7 downto 4       ABCD 3 downto 0     AN is active low       
-    JUMP PRINT                                                  ;send digit 2nd
+
+WIND_CASE00 :
+    LOAD s3,0f
+    LOAD s4,00
+    LOAD s5,70                                                  ;AN 7 downto 4       ABCD 3 downto 0     AN is active low       
+    LOAD s6,00
+    JUMP PRINT_WIND                                                  ;send digit 2nd
 
 
 
-CASE01 :
-    LOAD s2,01
-    LOAD s3,00
-    LOAD s4,a1                                                  ;digits 3 and 1 to "1"
-    ;OUTPUT s4,02
-    ;LOAD s4,d0
-        JUMP PRINT
+WIND_CASE01 :
+    LOAD s3,0f
+    LOAD s5,71
+        JUMP PRINT_WIND
     
-    CASE02 :
-    LOAD s2,02
-    LOAD s3,00
-    LOAD s4,a2
-    ;OUTPUT s4,02
-    ;LOAD s4,d0                                                  ;digits 4 and 2 to "0"
-        JUMP PRINT
+    WIND_CASE02 :
+    LOAD s3,0f
+    LOAD s5,72                                                 ;digits 4 and 2 to "0"
+        JUMP PRINT_WIND
 
-CASE03 :
-    LOAD s2,04
-    LOAD s3,00
-    LOAD s4,a3
-    ;OUTPUT s4,02
-    ;LOAD s4,d0
-        JUMP PRINT
+WIND_CASE03 :
+    LOAD s3,0f
+    LOAD s5,73
+        JUMP PRINT_WIND
+       
+
    
-CASE04 :
-    LOAD s2,08
-    LOAD s3,00
-    LOAD s4,a4
-    OUTPUT s4,02
-    LOAD s4,50
-        JUMP PRINT
+WIND_CASE04 :
+    LOAD s3,0f
+    LOAD s5,74
+        JUMP PRINT_WIND
 
-CASE05 :
-    LOAD s2,10
-    LOAD s3,00
-    OUTPUT s4,02
-    OUTPUT s4,02
-    OUTPUT s4,02
-    LOAD s4,a5
-    OUTPUT s4,02
-    OUTPUT s4,02
-    OUTPUT s4,02
-    OUTPUT s4,02
-    LOAD s4,50
-    OUTPUT s4,02
-    OUTPUT s4,02
-        JUMP PRINT
+WIND_CASE05 :
+    LOAD s3,0f
+    LOAD s5,75
+        JUMP PRINT_WIND
 
-CASE06 :
-    LOAD s2,20
-    LOAD s3,00
-    LOAD s4,a6
-    OUTPUT s4,02
-    LOAD s4,50
-        JUMP PRINT
+WIND_CASE06 :
+    LOAD s3,0f
+    LOAD s5,76
+        JUMP PRINT_WIND
 
-CASE07 :
-    LOAD s2,40
-    LOAD s3,00
-    LOAD s4,a7
-    OUTPUT s4,02
-    LOAD s4,50
-        JUMP PRINT
+WIND_CASE07 :
+    LOAD s3,0f
+    LOAD s5,77
+        JUMP PRINT_WIND
 
-CASE08 :
-    LOAD s2,80
-    LOAD s3,00
-    LOAD s4,a8
-    OUTPUT s4,02
-    LOAD s4,50
-        JUMP PRINT
+WIND_CASE08 :
+    LOAD s3,0f
+    LOAD s5,78
+        JUMP PRINT_WIND
 
-CASE09 :
-    LOAD s2,00
-    LOAD s3,01
-    LOAD s4,a9
-    OUTPUT s4,02
-    LOAD s4,50
-        JUMP PRINT
+WIND_CASE09 :
+    LOAD s3,0f
+    LOAD s5,79
+        JUMP PRINT_WIND
 
-CASE10 :
-    LOAD s2,00
-    LOAD s3,02
-    LOAD s4,a0
-    OUTPUT s4,02
-    LOAD s4,51
-        JUMP PRINT
 
-CASE11 :
-    LOAD s2,00
-    LOAD s3,04
-    LOAD s4,a1
-    OUTPUT s4,02
-    LOAD s4,51
-        JUMP PRINT
 
-CASE12 :
-    ;LOAD s2,00
-    ;LOAD s3,08
-    LOAD s4,a2
-    OUTPUT s4,02
-    LOAD s4,51
-        JUMP PRINT
 
-CASE13 :
-    LOAD s2,00
-    LOAD s3,10
-    LOAD s4,a3
-    OUTPUT s4,02
-    LOAD s4,51
-        JUMP PRINT
+;USe a CASE 16-> 32 to bypass WIND DISPLAy ?
 
-CASE14 :
-    LOAD s2,00
-    LOAD s3,20
-    LOAD s4,a4
-    OUTPUT s4,02
-    LOAD s4,51
-        JUMP PRINT
 
-CASE15 :
-    LOAD s2,00
-    LOAD s3,40
-    LOAD s4,a5
-    OUTPUT s4,02
-    LOAD s4,51
-        JUMP PRINT
 
-CASE16 :
-    LOAD s2,00
-    LOAD s3,80
-    LOAD s4,a6
-    OUTPUT s4,02
-    LOAD s4,51
-        JUMP PRINT
+
+
+
+SOLAR_CASE00 :
+    LOAD s4,0f
+    LOAD s6,b0
+    JUMP PRINT_SOLAR
+
+
+
+SOLAR_CASE01 :
+    LOAD s4,0d
+    LOAD s6,b1 
+        JUMP PRINT_SOLAR
+    
+SOLAR_CASE02 :
+    LOAD s4,0b
+    LOAD s6,b2 
+        JUMP PRINT_SOLAR
+
+SOLAR_CASE03 :
+    LOAD s4,0c
+    LOAD s6,b3
+        JUMP PRINT_SOLAR
+       
+
+   
+SOLAR_CASE04 :
+    LOAD s4,00
+    LOAD s6,b4
+        JUMP PRINT_SOLAR
+
+SOLAR_CASE05 :
+    LOAD s4,01
+    LOAD s6,b5
+        JUMP PRINT_SOLAR
+
+SOLAR_CASE06 :
+    LOAD s4,02
+    LOAD s6,b6
+        JUMP PRINT_SOLAR
+
+SOLAR_CASE07 :
+    LOAD s4,06
+    LOAD s6,b7
+        JUMP PRINT_SOLAR
+
+SOLAR_CASE08 :
+    LOAD s4,09
+    LOAD s6,b8
+        JUMP PRINT_SOLAR
+
+SOLAR_CASE09 :
+    LOAD s4,08
+    LOAD s6,b9
+        JUMP PRINT_SOLAR
+
+
+
+PRINT_WIND :
+        OUTPUT s3,03
+        OUTPUT s5,05
+        JUMP SOLAR
+
+PRINT_SOLAR :
+        OUTPUT s4,04
+        OUTPUT s6,06
+        JUMP WIND
 

@@ -70,14 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-<<<<<<< HEAD
-=======
 set_param chipscope.maxJobs 2
-set_param synth.incrementalSynthesisCache C:/Users/pegas/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-10712-DESKTOP-FFCQFA0/incrSyn
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
->>>>>>> experiments
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -94,6 +88,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
+  E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.srcs/sources_1/new/component_enabled.vhd
   E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/kcpsm6.vhd
   E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd
   E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/seg7.vhd

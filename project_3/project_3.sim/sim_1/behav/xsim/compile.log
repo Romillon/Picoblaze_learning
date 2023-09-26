@@ -1,2 +1,5 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/project_3.srcs/sim_1/new/Test_Bench2.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Test_Bench2'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/ISEN/VIVADO_stage_m1/PicoBlazeGIT01/project_3/prog3.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'prog3'
+INFO: [VRFC 10-3107] analyzing entity 'jtag_loader_6'

@@ -1,11 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-<<<<<<< HEAD
-| Date         : Mon Sep  4 14:34:08 2023
-=======
-| Date         : Wed Sep 13 19:38:31 2023
->>>>>>> experiments
+| Date         : Tue Sep 19 23:29:29 2023
 | Host         : DESKTOP-FFCQFA0 running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_drc_routed.rpt -pb main_drc_routed.pb -rpx main_drc_routed.rpx
 | Design       : main
@@ -33,7 +29,7 @@ Table of Contents
 | Rule     | Severity | Description                                         | Violations |
 +----------+----------+-----------------------------------------------------+------------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| PLIO-3   | Warning  | Placement Constraints Check for IO constraints      | 1          |
+| PDRC-153 | Warning  | Gated clock check                                   | 1          |
 +----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -51,9 +47,9 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
 Refer to the device configuration user guide for more information.
 Related violations: <none>
 
-PLIO-3#1 Warning
-Placement Constraints Check for IO constraints  
-Partially locked IO Bus is found. Following components of the IO Bus sw[15:0] are not locked:  sw[15] sw[14] sw[13] sw[12] sw[11] sw[10] sw[9] sw[8]
+PDRC-153#1 Warning
+Gated clock check  
+Net Energy_Modules/output_data_AN_reg[3]_i_2_n_0 is a gated clock net sourced by a combinational pin Energy_Modules/output_data_AN_reg[3]_i_2/O, cell Energy_Modules/output_data_AN_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

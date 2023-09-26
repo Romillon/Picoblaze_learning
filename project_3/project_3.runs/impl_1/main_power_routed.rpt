@@ -1,11 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-<<<<<<< HEAD
-| Date             : Mon Sep  4 14:34:10 2023
-=======
-| Date             : Wed Sep 13 19:38:33 2023
->>>>>>> experiments
+| Date             : Tue Sep 19 23:29:30 2023
 | Host             : DESKTOP-FFCQFA0 running 64-bit major release  (build 9200)
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -34,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.494        |
+| Total On-Chip Power (W)  | 3.080        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.416        |
-| Device Static (W)        | 0.078        |
+| Dynamic (W)              | 3.000        |
+| Device Static (W)        | 0.081        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 72.5         |
-| Junction Temperature (C) | 37.5         |
+| Max Ambient (C)          | 69.6         |
+| Junction Temperature (C) | 40.4         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -56,18 +52,18 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic              |     1.049 |      376 |       --- |             --- |
-|   LUT as Logic           |     0.795 |      111 |     20800 |            0.53 |
+| Slice Logic              |     1.062 |      408 |       --- |             --- |
+|   LUT as Logic           |     0.807 |      115 |     20800 |            0.55 |
 |   LUT as Distributed RAM |     0.162 |       24 |      9600 |            0.25 |
 |   CARRY4                 |     0.041 |       10 |      8150 |            0.12 |
-|   Register               |     0.039 |      147 |     41600 |            0.35 |
+|   Register               |     0.040 |      165 |     41600 |            0.40 |
 |   BUFG                   |     0.012 |        2 |        32 |            6.25 |
-|   Others                 |     0.000 |       23 |       --- |             --- |
-| Signals                  |     1.265 |      295 |       --- |             --- |
+|   Others                 |     0.000 |       26 |       --- |             --- |
+| Signals                  |     1.288 |      320 |       --- |             --- |
 | Block RAM                |     0.065 |        1 |        50 |            2.00 |
-| I/O                      |     0.037 |       36 |       106 |           33.96 |
-| Static Power             |     0.078 |          |           |                 |
-| Total                    |     2.494 |          |           |                 |
+| I/O                      |     0.585 |       36 |       106 |           33.96 |
+| Static Power             |     0.081 |          |           |                 |
+| Total                    |     3.080 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     2.426 |       2.410 |      0.015 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     2.463 |       2.446 |      0.017 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.033 |       0.020 |      0.013 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.156 |       0.155 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -144,42 +140,44 @@ Table of Contents
 +---------------------------------------------------------+-----------+
 | Name                                                    | Power (W) |
 +---------------------------------------------------------+-----------+
-| main                                                    |     2.416 |
-|   processor                                             |     1.873 |
-|     address_loop[0].output_data.pc_vector_mux_lut       |     0.008 |
-|     address_loop[10].output_data.pc_vector_mux_lut      |     0.007 |
-|     address_loop[2].output_data.pc_vector_mux_lut       |     0.009 |
-|     address_loop[4].output_data.pc_vector_mux_lut       |     0.007 |
-|     address_loop[6].output_data.pc_vector_mux_lut       |     0.007 |
-|     address_loop[8].output_data.pc_vector_mux_lut       |     0.007 |
-|     alu_decode0_lut                                     |     0.017 |
+| main                                                    |     3.000 |
+|   Display1                                              |     0.004 |
+|   Energy_Modules                                        |     0.009 |
+|   processor                                             |     1.851 |
+|     address_loop[0].output_data.pc_vector_mux_lut       |     0.009 |
+|     address_loop[10].output_data.pc_vector_mux_lut      |     0.009 |
+|     address_loop[2].output_data.pc_vector_mux_lut       |     0.008 |
+|     address_loop[4].output_data.pc_vector_mux_lut       |     0.008 |
+|     address_loop[6].output_data.pc_vector_mux_lut       |     0.008 |
+|     address_loop[8].output_data.pc_vector_mux_lut       |     0.008 |
+|     alu_decode0_lut                                     |     0.013 |
 |     alu_decode1_lut                                     |     0.008 |
-|     alu_decode2_lut                                     |     0.013 |
+|     alu_decode2_lut                                     |     0.012 |
 |     carry_flag_lut                                      |     0.012 |
 |     data_path_loop[0].arith_logical_lut                 |     0.016 |
 |     data_path_loop[0].lsb_shift_rotate.shift_rotate_lut |     0.025 |
-|     data_path_loop[0].output_data.sy_kk_mux_lut         |     0.057 |
-|     data_path_loop[0].second_operand.out_port_lut       |     0.059 |
+|     data_path_loop[0].output_data.sy_kk_mux_lut         |     0.052 |
+|     data_path_loop[0].second_operand.out_port_lut       |     0.055 |
 |     data_path_loop[0].small_spm.small_spm_ram.spm_ram   |     0.028 |
 |     data_path_loop[1].arith_logical_lut                 |     0.016 |
 |     data_path_loop[2].arith_logical_lut                 |     0.016 |
-|     data_path_loop[2].mid_shift_rotate.shift_rotate_lut |     0.027 |
-|     data_path_loop[2].output_data.sy_kk_mux_lut         |     0.057 |
-|     data_path_loop[2].second_operand.out_port_lut       |     0.060 |
+|     data_path_loop[2].mid_shift_rotate.shift_rotate_lut |     0.025 |
+|     data_path_loop[2].output_data.sy_kk_mux_lut         |     0.047 |
+|     data_path_loop[2].second_operand.out_port_lut       |     0.054 |
 |     data_path_loop[3].arith_logical_lut                 |     0.016 |
 |     data_path_loop[4].arith_logical_lut                 |     0.016 |
-|     data_path_loop[4].mid_shift_rotate.shift_rotate_lut |     0.027 |
-|     data_path_loop[4].output_data.sy_kk_mux_lut         |     0.055 |
-|     data_path_loop[4].second_operand.out_port_lut       |     0.061 |
+|     data_path_loop[4].mid_shift_rotate.shift_rotate_lut |     0.026 |
+|     data_path_loop[4].output_data.sy_kk_mux_lut         |     0.048 |
+|     data_path_loop[4].second_operand.out_port_lut       |     0.054 |
 |     data_path_loop[4].small_spm.small_spm_ram.spm_ram   |     0.028 |
 |     data_path_loop[5].arith_logical_lut                 |     0.016 |
 |     data_path_loop[6].arith_logical_lut                 |     0.016 |
-|     data_path_loop[6].msb_shift_rotate.shift_rotate_lut |     0.025 |
-|     data_path_loop[6].output_data.sy_kk_mux_lut         |     0.031 |
-|     data_path_loop[6].second_operand.out_port_lut       |     0.060 |
-|     data_path_loop[7].arith_logical_lut                 |     0.015 |
-|     lower_reg_banks                                     |     0.175 |
-|     move_type_lut                                       |     0.007 |
+|     data_path_loop[6].msb_shift_rotate.shift_rotate_lut |     0.024 |
+|     data_path_loop[6].output_data.sy_kk_mux_lut         |     0.024 |
+|     data_path_loop[6].second_operand.out_port_lut       |     0.050 |
+|     data_path_loop[7].arith_logical_lut                 |     0.016 |
+|     lower_reg_banks                                     |     0.168 |
+|     move_type_lut                                       |     0.009 |
 |     pc_mode1_lut                                        |     0.017 |
 |     push_pop_lut                                        |     0.007 |
 |     register_enable_lut                                 |     0.006 |
@@ -188,10 +186,10 @@ Table of Contents
 |     stack_ram_high                                      |     0.008 |
 |     stack_ram_low                                       |     0.008 |
 |     t_state_lut                                         |     0.010 |
-|     upper_reg_banks                                     |     0.147 |
+|     upper_reg_banks                                     |     0.154 |
 |     use_zero_flag_lut                                   |     0.007 |
-|   program_rom                                           |     0.462 |
-|     instantiate_loader.jtag_loader_6_inst               |     0.238 |
+|   program_rom                                           |     0.475 |
+|     instantiate_loader.jtag_loader_6_inst               |     0.244 |
 +---------------------------------------------------------+-----------+
 
 

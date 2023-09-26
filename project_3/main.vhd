@@ -42,6 +42,19 @@ architecture Behavioral of main is
           clk       : in std_logic);                                      --clk not used
   end component;
 
+  component component_enabled is
+    Port ( 
+        enableA             : in std_logic; 
+        enableB             : in std_logic; 
+        input_data_A        : in  STD_LOGIC_VECTOR(7 downto 0);
+        input_data_B        : in  STD_LOGIC_VECTOR(7 downto 0);
+        --previous_output     : in  STD_LOGIC_VECTOR(3 downto 0);
+        output_data_AN         : out std_logic_vector (3 downto 0);
+        output_data_SEG7         : out std_logic_vector (3 downto 0)
+        );
+  end component; 
+
+
 
   component prog3                            
     generic(             C_FAMILY : string := "S6"; 
@@ -90,14 +103,18 @@ signal     int_request : std_logic;
 signal HEX1 : std_logic_vector(3 downto 0);
 signal ANODE_ACTIVATE : std_logic_vector(3 downto 0);
 
+--signals for enabled_component
 
-signal WR4 :std_logic :='1';      --for 7segment display "enable"
-signal WR5 :std_logic :='0';
-signal WR6 :std_logic :='1';
-signal WR7 :std_logic :='0';
---signal HEX2 : std_logic_vector(3 downto 0);
---signal HEX3 : std_logic_vector(3 downto 0);
---signal HEX4 : std_logic_vector(3 downto 0);
+signal enable_Wind : std_logic;
+signal enable_Solar : std_logic;
+
+signal input_Wind : std_logic_vector(7 downto 0);
+signal input_Solar : std_logic_vector(7 downto 0);
+
+--signal output_Wind : std_logic_vector(3 downto 0);
+--signal output_Solar : std_logic_vector(3 downto 0);
+signal output_Energy : std_logic_vector(3 downto 0);
+
 
 
 
@@ -109,12 +126,12 @@ begin
     port map(      address => instr_adr,
                instruction => instr,
                bram_enable => bram_enable,
-                   port_id => port_id,                              --la je dois changer le truc parce que j'ai le port pour les leds de droite et celles de guahce.
+                   port_id => port_id,                             
               write_strobe => wr_en,
             k_write_strobe => open,
                   out_port => out_port,
                read_strobe => open,
-                   in_port => sw (7 downto 0),
+                   in_port => sw (7 downto 0),            --will change after
                  interrupt => '0',
              interrupt_ack => open,
                      sleep => '0',
@@ -132,17 +149,14 @@ Display1: seg7
             seg      => segs7,
             an       => an);
 
---Display2: seg7 
-  --port map ( ABCD => HEX2,
-  --          seg => segs7 (13 downto 7));
-
---Display3: seg7 
-  --port map ( ABCD => HEX3,
-  --          seg => segs7 (20 downto 14));
-
---Display4: seg7 
---  port map ( ABCD => HEX4,
---          seg => segs7 (27 downto 21));
+Energy_Modules  : component_enabled
+  port map (enableA           => enable_Wind,     
+            input_data_A      => input_Wind,
+            enableB           => enable_Solar,     
+            input_data_B      => input_Solar,
+            output_data_AN    => ANODE_ACTIVATE,
+            output_data_SEG7  => HEX1
+            );   --only one input 'cause i fear to display 2 digits
 
 
 
@@ -162,40 +176,53 @@ Display1: seg7
         if clk'event and clk='1' then
             if wr_en ='1' then
 
-                if port_id ="00000000" then
-                  leds(7 downto 0) <= out_port;  
-                end if;
-
-                if port_id ="00000001" then                                 --port_id = 1
-                  leds(15 downto 8) <= out_port;  
-                end if;
-
-                if port_id = "00000010" then                                --port_id = 2
-                  HEX1(3 downto 0) <= out_port(3 downto 0);                 --
-                  
-                  --  "and gates cf diagram he sent me on outlook  "
-
-
-
-
-                  ANODE_ACTIVATE <= out_port(7 downto 4);
-                  end if;
-
---                if port_id(0) ='3' then
- --                 HEX1(7 downto 4) <= out_port; 
-   --               an <= 0b01; 
-     --           end if;
-
-       --         if port_id(0) ='4' then
-         --         HEX1(11 downto 8) <= out_port;  
-           --       an <= 0b10;
-             --     end if;
-
-           --     if port_id(0) ='5' then
-             --     HEX1(15 downto 12) <= out_port;  
-               --   an <= 0b11;
-                 --end if;
+              case port_id(2 downto 0) is    
                 
+                when "000" =>
+                in_port <= sw (7 downto 0);
+
+
+                when "001" =>
+                in_port <= sw (15 downto 8);
+
+
+                when "010" =>
+                --in_port(0) <= push_n;         --taken from KCPSM6 User Guide    SLIDE 20
+                --in_port(1) <= push_e;         --might be use later on
+                --in_port(2) <= push_s;
+                --in_port(3) <= push_w;
+                --in_port(4) <= push_c;
+
+
+                when "011" =>
+                  leds(7 downto 0) <= out_port;  
+                
+
+                when "100" =>                              
+                  leds(15 downto 8) <= out_port;  
+                
+
+                when "101" =>                   
+                  enable_Wind  <= '1';
+                  enable_Solar <= '0';              
+                  input_Wind <= out_port;                
+                          
+
+
+                when "110" =>
+                  enable_Wind  <= '0';
+                  enable_Solar <= '1';
+                  input_Solar <= out_port;
+
+
+
+                when others =>
+                  in_port <= "XXXXXXXX";
+                  out_port <="XXXXXXXX";              
+
+
+              end case;
+
             end if;
 
         end if;

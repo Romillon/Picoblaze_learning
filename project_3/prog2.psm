@@ -5,6 +5,8 @@ LOAD s2,00            ; LED MSB
 BOUCLE :
         INPUT s0,00    ;The binary code coresponding to my switches are written here in s0.
         
+        COMPARE s0, 00     
+        JUMP Z, CASE00
         COMPARE s0, 01      ; switch =1 ?
         JUMP Z, CASE01      ; if equal --> JUMP to location CASE01 after
         COMPARE s0, 02      ; switch =2 ?
@@ -37,12 +39,11 @@ BOUCLE :
         JUMP Z, CASE15     
         COMPARE s0, 10     
         JUMP Z, CASE16
-        COMPARE s0, 00     
-        JUMP Z, CASE00
+
     
     PRINT:
-        OUTPUT s1,00     ;LSB
-        OUTPUT s2,01     ;MSB
+        OUTPUT s1,00     ;LEDs_LSB
+        OUTPUT s2,01     ;LEDs_MSB
         JUMP BOUCLE
 
 CASE00 :
